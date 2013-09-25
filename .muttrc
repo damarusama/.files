@@ -1,0 +1,167 @@
+#.muttrc
+#
+#_________________________________________________________login information
+#
+source ~/.mutt/mailboxes
+set mbox_type=Maildir
+set folder=~/Mail
+
+#
+#
+#_____________________________________________________________ User information
+set realname = "geoffroy tremblay"
+set hostname = ponnuki.net
+#
+#OS Stuff
+set tmpdir = /tmp
+set print_split = yes
+set message_cachedir ="/home/damaru/.mail/cache/"
+set help=no
+#
+#_____________________________________________________________________FORMATING
+set status_format=""
+set pager_format="%S  %C/%m  %a  %c  %s"
+#set pager="less"
+auto_view text/html
+#set folder_format="%N  %d %f"
+set folder_format="%f"
+set mailcap_path  = ~/.mutt/mailcap
+#___________________________________________________________________ABOOK QUERY
+#
+set query_command="abook --mutt-query '%s'"
+macro index a     "|abook --add-email\n" 'add sender to abook'
+macro pager a     "|abook --add-email\n" 'add sender to abook'
+#
+#_________________________________________________________________IMAP SETTINGS
+#
+#
+#
+#CACHING
+
+set header_cache = "/home/damaru/.mail/cache/head"
+set message_cachedir = "/home/damaru/.mail/cache/body"
+#folder-hook =/sent  set sort=date-sent
+set sort_aux = date
+set strict_threads = no
+set sort=threads
+set wrap_search = yes 
+set mark_old = no           #Do not mark unread new messages as 'old'
+set collapse_unread = no    #Do not let me collapse threads with unread msgs
+set uncollapse_jump = yes   #When uncollapsing, jump to new msgs
+set delete = yes
+#set index_format="%4C %Z %{%b %d} %-15.15n (%4l) %s"
+set index_format="%Z %{%b %d} %s %c %>. %n"
+#
+#set arrow_cursor
+#
+#_________________________________________________________________________Color
+color index cyan default "~Q"
+color index red default "~N"
+color index white default "~A !~Q !~N" 
+color normal white default
+color indicator black yellow 
+color status blue default 
+color message cyan default
+color attachment blue default
+#
+#
+color body white default [_a-z\.\$A-Z0-9-]+@[a-zA-Z0-9\./\-]+
+color body white default (http|ftp)://[_a-zA-Z0-9\?\=\&\@\%\#\:\,\./~\-]+
+#
+#
+#______________________________________________________ Message Display Options
+set smart_wrap = yes        #Wrap at word boundaries if possible
+#set pager_index_lines = 6   Show a few lines from the index above the msg
+set pager_stop = yes        #PgDown at bottom does not move to next message
+set markers = no            #Don't add "+" on wrapped lines (hard to copy)
+#Cleaning up the header
+ignore *
+unignore cc bcc
+#set display_filter="sed '\''/^\\[-- .* --]$/d'\''"
+#
+#
+#___________________________________________________________________ Composing
+set signature = "~/.signature"
+set postpone = ask-yes
+set postponed = =MuttMail/postponed
+#set editor = 'vim -c "set nonumber" -c "start" "+normal O"'
+#start vim with a minimal ui and on the first line of the reply
+set editor = 'vim -c "set nonumber" -c "start" -c "set laststatus=0" "+normal O"'
+set fast_reply = yes
+set abort_nosubject = no
+set abort_unmodified = ask-yes
+#
+#_____________________________________________________________________Replying
+set reply_self = no        # Reply to recipients, not to myself on my own msgs
+set indent_string = "> "
+set include = yes
+set attribution = "On %d, %n wrote:"
+set bounce_delivered = yes
+#
+#________________________________________________________________Forwarding
+set forward_format = "Fwd: [ %s ]"
+set forward_quote = yes
+#
+#Folder and Mailbox
+set copy = yes             # Save copy of outgoing msgs
+set record = "~/Mail/INBOX.Sent" #Where do we keep sent messages?
+set move = no
+set fcc_attach = yes       # Save outgoing attachments
+set fcc_clear = no         # Keep encryption/signatures
+#set folder_format="%F %-8.8u %-8.8g %d %8s %N %f"
+#
+#Headers
+set hdrs = yes              #???
+set header = no            #Headers in reply
+set edit_headers = no      #Headers in editor
+#
+#Sending
+#set write_bcc = yes
+set use_from = yes
+set envelope_from = yes
+unset wait_key #removing the press anyykey to continue
+#
+#
+#IMAP
+#set mail_check = 60
+set timeout = 15
+set imap_list_subscribed = yes
+set imap_passive = no
+#
+#
+#_________________________________________________________________MARCO
+#
+#
+macro index <F2>  ":source ~/.muttrc\n" "Reloading"
+macro pager <F5> ":source ~/.muttrc\n" "Reloading"
+##offline imap
+macro index "'i" "<shell-escape>offlineimap -f INBOX<enter>" "Synchronize INBOX mails"
+macro index "'S" "<shell-escape>offlineimap -f " "Choose folder to synchronize"
+macro index "'s"            "<shell-escape>offlineimap -a profile<enter>"
+#msmtp
+macro index "'q" "<shell-escape>/usr/bin/msmtp-listqueue.sh -d  | less -r<enter>" "Show the local mail queuee"
+macro index "'f" "<shell-escape>/usr/bin/msmtp-runqueue.sh  | less -r<enter>" "Sending mail"'"'"
+
+#_________________________________________________________________IMAP SETTINGS
+#set folder = imap://gef+ponnuki.net@tropicana.asmallorange.com/INBOX
+#set spoolfile = imap://tropicana.asmallorange.com/INBOX
+set spoolfile ="+INBOX"
+#set record=imap://tropicana.asmallorange.com/INBOX.Sent
+#set postponed=imaps://tropicana.asmallorange.com/INBOX.Brouillons
+#set imap_check_subscribed
+#
+#set imap_user = gef+ponnuki.net
+#set imap_pass = g3f@p0nnuk!
+#
+
+#smtp
+#set smtp_pass= g3f@p0nnuk!
+#set my_user = gef+ponnuki.net
+#set smtp_url="smtp://$my_user:$smtp_pass@tropicana.asmallorange.com:26"
+#set from="gef@ponnuki.net"
+#set realname="geoffroy"
+#set smtp_url=smtp://$my_user:$smtp_pass@tropicana.asmallorange.com
+
+#use msmtp instead
+set sendmail="/usr/bin/msmtp-enqueue.sh"
+set from=gef@ponnuki.net

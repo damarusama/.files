@@ -1,0 +1,16 @@
+# ~/.tmuxinator/hi.yml
+# you can make as many tabs as you wish...
+
+project_name: oni 
+project_root: /home/damaru/ 
+socket_name: foo # Not needed.  Remove to use default socket
+rvm: 
+pre: 
+tabs:
+  - editor:
+      layout: main-vertical
+      panes:
+        - viki
+        - #empty, will just run plain bash
+        - mutt 
+  - w3m: w3m google.com

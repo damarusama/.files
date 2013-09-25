@@ -1,0 +1,5 @@
+set ssl:verify-certificate no
+set cmd:prompt "lftp \[\e[01;32m\]\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\] % "
+
+set color:use-color auto
+alias vim source -e ~/.lftp/edit.sh
