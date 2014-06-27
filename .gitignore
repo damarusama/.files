@@ -23,3 +23,6 @@
 !.tmuxinator/hi.yml
 !.config/openbox/autostart
 !.mailcap
+!.xinitrc
+!.i3/
+!.i3/config

@@ -20,7 +20,15 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333 ctermbg=black
 :hi FoldColumn ctermbg=black ctermfg=black
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222 ctermgb=grey
 au FileType *  IndentGuidesEnable
-
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 "powerline
 set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
@@ -30,45 +38,52 @@ set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 set nocompatible               " be iMproved
 filetype off                   " required!
 "Vim bundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 set ignorecase
 au FileType md IndentGuidesDisable
 set thesaurus+=/home/damaru/.vim/mthesaur.txt
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 " My Bundles here:
 " 
 " original repos on github
 "Bundle 'thanthese/Tortoise-Typing'
 "Bundle 'mivok/vimtodo'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-"Bundle 'Townk/vim-autoclose'
-Bundle 'pekepeke/vim-markdown-helpfile'
-Bundle 'dagwieers/asciidoc-vim'
-Bundle 'mattn/calendar-vim'  
-Bundle 'chrisbra/csv.vim'  
-Bundle 'scrooloose/nerdtree'  
-Bundle 'godlygeek/tabular'
-"Bundle 'rosenfeld/conque-term'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'wookiehangover/jshint.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'msanders/snipmate.vim'
-Bundle 'mattn/zencoding-vim'
-Bundle 'altercation/vim-colors-solarized'
-"Bundle 'lsdr/monokai'
-Bundle 'sophacles/vim-processing'
-Bundle 'vimwiki/vimwiki'
-Bundle 'plasticboy/vim-markdown'
-" Bundle 'fholgado/minibufexpl.vim'
-Bundle  'scrooloose/syntastic'
-"Bundle 'nelstrom/vim-markdown-folding'
-"Bundle 'mikewest/vimroom'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'einars/js-beautify'
+Plugin 'maksimr/vim-jsbeautify'
+"Plugin 'Townk/vim-autoclose'
+Plugin 'pekepeke/vim-markdown-helpfile'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'dagwieers/asciidoc-vim'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'mattn/calendar-vim'  
+Plugin 'chrisbra/csv.vim'  
+Plugin 'scrooloose/nerdtree'  
+Plugin 'PotHix/Vimpress'
+Plugin 'godlygeek/tabular'
+"Plugin 'rosenfeld/conque-term'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'wookiehangover/jshint.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'msanders/snipmate.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'altercation/vim-colors-solarized'
+"Plugin 'lsdr/monokai'
+Plugin 'sophacles/vim-processing'
+Plugin 'mustache/vim-mode'
+"Plugin 'vim-scripts/VimRepress'
+Plugin 'vimwiki/vimwiki'
+Plugin 'plasticboy/vim-markdown'
+" Plugin 'fholgado/minibufexpl.vim'
+Plugin  'scrooloose/syntastic'
+"Plugin 'nelstrom/vim-markdown-folding'
+"Plugin 'mikewest/vimroom'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -76,14 +91,8 @@ Bundle 'L9'
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
 
+call vundle#end() 
 filetype plugin indent on     " required!
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""GUI options
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-"set guifont=Droid\ Sans\ Mono\ 8
-set guifont=Source\ Code\ Pro\ 8 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""General settings

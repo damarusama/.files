@@ -16,9 +16,9 @@ fi
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
+xrandr --output DVI-D-1 --auto --output HDMI-1 --auto --rotate left --right-of DVI-D-1 &
 mount-tray &
 #tint2 &
-xrandr --output HDMI-0 --rotate left &
 #exec openbox-session 
 exec i3
 

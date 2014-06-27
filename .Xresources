@@ -69,7 +69,7 @@ URxvt.perl-ext-common: fullscreen,default,matcher
 URxvt.keysym.F11:  perl:fullscreen:switch
 
 ! clickable url
-URxvt.url-launcher:      /usr/bin/firefox
+URxvt.url-launcher:      /usr/bin/dwb
 URxvt.matcher.button:   1
 
 URxvt.depth:                32
@@ -81,7 +81,7 @@ URxvt*cursorColor: #DCDCCC
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
 ! URxvt.loginShell:           true
- URxvt.saveLines:            50
+ URxvt.saveLines:            500
  URxvt.internalBorder:       3
  URxvt.lineSpace:            0
 
@@ -103,7 +103,8 @@ URxvt*cursorColor: #DCDCCC
   URxvt.pointerBlank:         true
 
 !urxvt*font: xft:Anonymous Pro:pixelsize=14
-urxvt*font: xft:Inconsolata:pixelsize=13
+!urxvt*font: xft:CosmicSansNeuMono:pixelsize=10
+urxvt*font: xft:Inconsolata:pixelsize=12
 !URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=12
 !URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=12
 

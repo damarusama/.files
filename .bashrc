@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:usr/X11/bin:/opt:/usr/games/:/home/damaru/.gem/ruby/2.0.0/bin:/home/damaru/bin
+PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:usr/X11/bin:/opt:/usr/games/:/home/damaru/.gem/ruby/2.1.0/bin:/home/damaru/bin:/home/damaru/.gem/ruby/2.1/bin/:/home/damaru/.gem/ruby/2.1/gems/
 
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=1000000000
+HISTFILESIZE=2000000000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -94,6 +94,7 @@ fi
 alias tmuxi='tmuxinator start hi'
 alias fr='setxkbmap -layout "ca" -variant "fr"'
 alias en='setxkbmap us'
+alias cp='scp'
 
 # GRC color for most common command
 alias ping='grc ping'
@@ -106,6 +107,7 @@ alias diary='vim -c Calendar /home/damaru/vimwiki/diary/diary.wiki'
 alias dream='vim -c Calendar /home/damaru/dreams/dreams.wiki'
 alias ponnuki='ssh ponnukin@ponnuki.net'
 alias open3='ssh damaru@open3.cc'
+alias crunchyroll="chromium --app=http://crunchyroll.com &"
 function mkcd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
 function cpcd () { cp  "$@" && eval cd "\"\$$#\""; }
 alias taskindle='cp /home/damaru/vimwiki/index.wiki /home/damaru/task.txt | sendKindle task.txt'
@@ -135,5 +137,52 @@ function w3g { w3m google.com/search?q="$1" ;}
 PS1="\[\033[34m\]\${PWD} \n\[\033[32m\]> " 
 MAIL=/home/damaru/Maildir
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH="$HOME/.dynamic-colors/bin:$PATH"
 MANPAGER=/usr/bin/most
 EDITOR=/usr/bin/vim
+#TERM=fbterm fbterm
+# Utilities for quickly accessing frequently used directories in bash.
+
+# Usage: 
+#   $ cd /path/to/project/src/
+#   $ mark code     # Will create a new shortcut. 
+#                   # Becomes interactive if a shortcut already exists
+#                   # m is an alias for mark. You can also `m code`
+#
+#   $ code          # From now on, running this anywhere in the shell 
+#                   # will put you in /path/to/project/src/code
+#
+#   $ unmark code   # Will remove the symlink and is interactive
+#                   # u is an alias for unmark. You can also `u code`
+
+SHELLMARKSDIR="$HOME/.shellmarks"
+mkdir -p $SHELLMARKSDIR
+function mark_alias { alias $(basename $1)="cd -P $1"; }
+
+function mark { # Mark a directory
+    symlink=$SHELLMARKSDIR/$1
+    ln -ivs "$(pwd)" $symlink && mark_alias $symlink
+}
+alias m=mark
+
+function unmark { # Remove a mark
+    symlink=$SHELLMARKSDIR/$1
+    rm -iv $symlink
+    if [ ! -f $symlink ]; then
+        unalias $1
+    fi
+}
+alias u=unmark
+
+function shellmarks { # List all existing marks
+    LINK_COLOR=$'\e[1;35m'
+    RESET_COLOR=$'\e[0m'
+    for symlink in $SHELLMARKSDIR/*; do
+        echo "${LINK_COLOR}    $(basename $symlink) ${RESET_COLOR} -> $(readlink $symlink)"
+    done
+}
+
+for symlink in $SHELLMARKSDIR/*; do # load all existing symlinks as aliases
+    mark_alias $symlink
+    test -e $symlink || rm $symlink # remove symlinks if source does not exist
+done

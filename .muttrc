@@ -5,7 +5,7 @@
 source ~/.mutt/mailboxes
 set mbox_type=Maildir
 set folder=~/Mail
-
+set signature="/home/damaru/.mutt/signature"
 #
 #
 #_____________________________________________________________ User information
@@ -61,6 +61,8 @@ color index white default "~A !~Q !~N"
 color normal white default
 color indicator black yellow 
 color status blue default 
+color index yellow default ~F
+color index black default ~D
 color message cyan default
 color attachment blue default
 #

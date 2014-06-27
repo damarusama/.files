@@ -176,7 +176,7 @@ statusbar = {
     topicbarend = "{topicsbend}";
 
     # treated "normally", you could change the time/user name to whatever
-   # time = "{sb $Z}";
+    # time = "{sb $Z}";
     user = "{sb {sbnickmode $cumode}$N{sbmode $usermode}{sbaway $A}}";
 
     # treated specially .. window is printed with non-empty windows,
@@ -275,7 +275,7 @@ settings = {
     real_name = "damaru";
     user_name = "damarusama";
     nick = "damarusama";
-		timestamp_format = "";
+    timestamp_format = "";
 
   };
   "fe-common/core" = {
@@ -284,6 +284,7 @@ settings = {
     hilight_color = "= %R";
   };
   "fe-text" = { actlist_sort = "refnum"; };
+  "irc/dcc" = { dcc_autoget = "yes"; dcc_download_path = "~/.irssi/"; };
 };
 
 hilights = (
@@ -293,7 +294,17 @@ hilights = (
 ignores = (
   {
     level = "JOINS PARTS QUITS";
-    channels = ( "#crunchbang", "#vim", "#irssi", "#mutt", "#anime","#inkscape","#node.js","#archlinux" );
+    channels = (
+      "#crunchbang",
+      "#vim",
+      "#irssi",
+      "#mutt",
+      "#anime",
+      "#inkscape",
+      "#node.js",
+      "##design",
+      "#archlinux"
+    );
     network = "FreeNode";
   }
 );

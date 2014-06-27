@@ -1,9 +1,6 @@
-
 color listnormal cyan default
 color listfocus  black yellow 
 color info       cyan   black 
-color background color244 color234
-color article    color244 color234
 browser "w3m %u"
 max-items		500
 

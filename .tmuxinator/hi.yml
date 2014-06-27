@@ -13,4 +13,3 @@ tabs:
         - viki
         - #empty, will just run plain bash
         - mutt 
-  - w3m: w3m google.com
