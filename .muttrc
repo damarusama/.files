@@ -152,17 +152,9 @@ set spoolfile ="+INBOX"
 #set postponed=imaps://tropicana.asmallorange.com/INBOX.Brouillons
 #set imap_check_subscribed
 #
-#set imap_user = gef+ponnuki.net
-#set imap_pass = g3f@p0nnuk!
 #
 
 #smtp
-#set smtp_pass= g3f@p0nnuk!
-#set my_user = gef+ponnuki.net
-#set smtp_url="smtp://$my_user:$smtp_pass@tropicana.asmallorange.com:26"
-#set from="gef@ponnuki.net"
-#set realname="geoffroy"
-#set smtp_url=smtp://$my_user:$smtp_pass@tropicana.asmallorange.com
 
 #use msmtp instead
 set sendmail="/usr/bin/msmtp-enqueue.sh"
