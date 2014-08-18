@@ -44,6 +44,10 @@ set ignorecase
 au FileType md IndentGuidesDisable
 set thesaurus+=/home/damaru/.vim/mthesaur.txt
 
+map <F12> :%!tidy -q --tidy-mark 0 2>/dev/null<CR>
+autocmd BufEnter * let &titlestring = expand("%:@")
+set title
+
 " let Vundle manage Vundle
 " required! 
 Plugin 'gmarik/Vundle.vim'
@@ -55,29 +59,29 @@ Plugin 'gmarik/Vundle.vim'
 "Bundle 'mivok/vimtodo'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
-Plugin 'einars/js-beautify'
-Plugin 'maksimr/vim-jsbeautify'
+"Plugin 'einars/js-beautify'
+"Plugin 'maksimr/vim-jsbeautify'
 "Plugin 'Townk/vim-autoclose'
-Plugin 'pekepeke/vim-markdown-helpfile'
+"Plugin 'pekepeke/vim-markdown-helpfile'
 "Plugin 'Shougo/neocomplcache.vim'
-Plugin 'dagwieers/asciidoc-vim'
+"Plugin 'dagwieers/asciidoc-vim'
 Plugin 'sheerun/vim-polyglot'
-Plugin 'mattn/flappyvird-vim'
+"Plugin 'mattn/flappyvird-vim'
 Plugin 'mattn/calendar-vim'  
 Plugin 'chrisbra/csv.vim'  
-Plugin 'sophacles/vim-processing'
+"Plugin 'sophacles/vim-processing'
 Plugin 'scrooloose/nerdtree'  
-Plugin 'PotHix/Vimpress'
+"Plugin 'PotHix/Vimpress'
 Plugin 'godlygeek/tabular'
 "Plugin 'rosenfeld/conque-term'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'wookiehangover/jshint.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'wookiehangover/jshint.vim'
+"Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'msanders/snipmate.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
 "Plugin 'lsdr/monokai'
-Plugin 'mustache/vim-mode'
+"Plugin 'mustache/vim-mode'
 "Plugin 'vim-scripts/VimRepress'
 Plugin 'vimwiki/vimwiki'
 Plugin 'plasticboy/vim-markdown'

@@ -105,6 +105,7 @@ URxvt*cursorColor: #DCDCCC
 !urxvt*font: xft:Anonymous Pro:pixelsize=14
 !urxvt*font: xft:CosmicSansNeuMono:pixelsize=10
 urxvt*font: xft:Inconsolata:pixelsize=12
+!urxvt*font: xft:InputSans:pixelsize=10
 !URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=12
 !URxvt*font: xft:Inconsolata\ for\ Powerline:pixelsize=12
 

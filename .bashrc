@@ -134,6 +134,8 @@ LIGHT=1;
 
 function w3g { w3m google.com/search?q="$1" ;}
 
+export BROWSER="/usr/bin/dwb"
+
 PS1="\[\033[34m\]\${PWD} \n\[\033[32m\]> " 
 MAIL=/home/damaru/Maildir
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
