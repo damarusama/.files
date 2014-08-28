@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:usr/X11/bin:/opt:/usr/games/:/home/damaru/.gem/ruby/2.1.0/bin:/home/damaru/bin:/home/damaru/.gem/ruby/2.1/bin/:/home/damaru/.gem/ruby/2.1/gems/
+PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:usr/X11/bin:/opt:/usr/games/:/home/damaru/.gem/ruby/2.1.0/bin:/home/damaru/bin:/home/damaru/.gem/ruby/2.1/bin/:/home/damaru/.gem/ruby/2.1/gems/:/home/damaru/npm/bin
 
 
 # don't put duplicate lines or lines starting with space in the history.
