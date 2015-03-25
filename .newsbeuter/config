@@ -13,6 +13,18 @@ text-width	92
 
 articlelist-format "%f%D %?T?;%-17T; ?%t"
 
+urls-source "ttrss"
+ttrss-url "http://rss.ponnuki.net"
+
+ttrss-login "admin"
+ttrss-password "P0nnuk!"
+
+ttrss-mode "single"             # "multi" is default
+
+ttrss-flag-star "s"
+ttrss-flag-publish "p"
+
+
 always-display-description false
 feedlist-format "%11u .%> %t"
 bind-key h prev-unread-feed

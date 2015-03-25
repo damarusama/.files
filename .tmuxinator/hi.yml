@@ -6,10 +6,16 @@ project_root: /home/damaru/
 socket_name: foo # Not needed.  Remove to use default socket
 rvm: 
 pre: 
-tabs:
-  - editor:
+windows:
+  - work:
       layout: main-vertical
       panes:
         - viki
-        - #empty, will just run plain bash
+        - zsh 
         - mutt 
+  - info:
+      layout: main-vertical
+      panes:
+        - newsbeuter 
+        - irssi
+        - mocp 

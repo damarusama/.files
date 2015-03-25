@@ -188,3 +188,4 @@ for symlink in $SHELLMARKSDIR/*; do # load all existing symlinks as aliases
     mark_alias $symlink
     test -e $symlink || rm $symlink # remove symlinks if source does not exist
 done
+source ~/.commacd.bash

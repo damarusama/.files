@@ -8,6 +8,7 @@ au ColorScheme * :hi SpellBad ctermbg=black
 let g:indent_guides_auto_colors = 0
 let g:vimwiki_folding = 1
 let mapleader="'"
+let g:airline_powerline_fonts = 1
 "set startfoldlevel=1
 au BufWinLeave *.wiki mkview
 au BufWinEnter *.wiki silent loadview
@@ -36,7 +37,7 @@ set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""Plugins
 set nocompatible               " be iMproved
-filetype off                   " required!
+filetype plugin on                   " required!
 "Vim bundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -55,40 +56,24 @@ Plugin 'gmarik/Vundle.vim'
 " My Bundles here:
 " 
 " original repos on github
-"Bundle 'thanthese/Tortoise-Typing'
-"Bundle 'mivok/vimtodo'
+Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
+Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-surround'
-"Plugin 'einars/js-beautify'
-"Plugin 'maksimr/vim-jsbeautify'
-"Plugin 'Townk/vim-autoclose'
-"Plugin 'pekepeke/vim-markdown-helpfile'
-"Plugin 'Shougo/neocomplcache.vim'
-"Plugin 'dagwieers/asciidoc-vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'vim-scripts/XML-Folding'
 Plugin 'sheerun/vim-polyglot'
-"Plugin 'mattn/flappyvird-vim'
 Plugin 'mattn/calendar-vim'  
 Plugin 'chrisbra/csv.vim'  
-"Plugin 'sophacles/vim-processing'
 Plugin 'scrooloose/nerdtree'  
-"Plugin 'PotHix/Vimpress'
 Plugin 'godlygeek/tabular'
-"Plugin 'rosenfeld/conque-term'
-Plugin 'Lokaltog/vim-powerline'
-"Plugin 'wookiehangover/jshint.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
-"Plugin 'msanders/snipmate.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'altercation/vim-colors-solarized'
-"Plugin 'lsdr/monokai'
-"Plugin 'mustache/vim-mode'
-"Plugin 'vim-scripts/VimRepress'
 Plugin 'vimwiki/vimwiki'
 Plugin 'plasticboy/vim-markdown'
-" Plugin 'fholgado/minibufexpl.vim'
 Plugin  'scrooloose/syntastic'
-"Plugin 'nelstrom/vim-markdown-folding'
-"Plugin 'mikewest/vimroom'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -133,7 +118,6 @@ au FileType vimwiki setl nonumber
 
 "mapping cw to s-bs
 "map <C-[> <C-W>
-
 " copy path of the open file in the register 
 nnoremap <F2> :let @" = expand("%:p") <CR>
 "add time to buffer

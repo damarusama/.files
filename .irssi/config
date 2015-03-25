@@ -3,7 +3,7 @@ servers = (
     address = "irc.freenode.net";
     chatnet = "Freenode";
     port = "7000";
-    password = "d4m4ru";
+    password = ")4m4ru";
     sss_verify = "yes";
     use_ssl = "yes";
     autoconnect = "yes";
@@ -303,7 +303,8 @@ ignores = (
       "#inkscape",
       "#node.js",
       "##design",
-      "#archlinux"
+      "#archlinux",
+      "#emberjs"
     );
     network = "FreeNode";
   }
